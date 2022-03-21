@@ -56,22 +56,6 @@
 		B246476927E8610B00A49775 = {
 			isa = PBXGroup;
 			children = (
-				B246477427E8610B00A49775 /* CollectionViewDemo */,
-				B246477327E8610B00A49775 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		B246477327E8610B00A49775 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				B246477227E8610B00A49775 /* CollectionViewDemo.app */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B246477427E8610B00A49775 /* CollectionViewDemo */ = {
-			isa = PBXGroup;
-			children = (
 				B246479627E8626900A49775 /* My Files */,
 				B246477527E8610B00A49775 /* AppDelegate.h */,
 				B246477627E8610B00A49775 /* AppDelegate.m */,
@@ -84,8 +68,16 @@
 				B246478327E8610D00A49775 /* LaunchScreen.storyboard */,
 				B246478627E8610D00A49775 /* Info.plist */,
 				B246478727E8610D00A49775 /* main.m */,
+				B246477327E8610B00A49775 /* Products */,
 			);
-			path = CollectionViewDemo;
+			sourceTree = "<group>";
+		};
+		B246477327E8610B00A49775 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B246477227E8610B00A49775 /* CollectionViewDemo.app */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		B246479627E8626900A49775 /* My Files */ = {
@@ -323,7 +315,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CollectionViewDemo/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -349,7 +341,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CollectionViewDemo/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
