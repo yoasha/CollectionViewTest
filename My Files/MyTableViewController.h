@@ -10,8 +10,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MyTableViewController : UITableViewController
-
-@property (nonatomic, strong) NSArray<NSString *> *dataModel;
     
 @end
 

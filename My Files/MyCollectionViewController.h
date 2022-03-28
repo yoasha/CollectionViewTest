@@ -11,8 +11,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCollectionViewController : UICollectionViewController
 
-@property (nonatomic, strong) NSArray<NSString *> *dataModel;
-
 @end
 
 NS_ASSUME_NONNULL_END

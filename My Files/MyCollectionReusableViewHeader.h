@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MyCollectionReusableViewHeader : UICollectionReusableView
 
-@property NSString *text;
+- (void)configureWithText:(NSString *)text;
 
 @end
 

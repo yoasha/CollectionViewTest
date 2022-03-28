@@ -17,15 +17,14 @@
 
 - (IBAction)tableViewPressed:(id)sender {
     MyTableViewController *vc = [[MyTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    vc.dataModel = [self dataModel];
     vc.title = @"UITableViewController";
 
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)collectionViewPressed:(id)sender {
-    MyCollectionViewController *vc = [[MyCollectionViewController alloc] initWithCollectionViewLayout:[[UICollectionViewFlowLayout alloc] init]];
-    vc.dataModel = [self dataModel];
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    MyCollectionViewController *vc = [[MyCollectionViewController alloc] initWithCollectionViewLayout:layout];
     vc.title = @"UICollectionViewController";
     
     [self.navigationController pushViewController:vc animated:YES];
@@ -35,10 +34,5 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
-
-- (NSArray<NSString *> *)dataModel {
-    return @[@"0", @"1", @"2", @"3", @"4"];
-}
-
 
 @end

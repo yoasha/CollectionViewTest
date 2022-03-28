@@ -22,29 +22,30 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return self.dataModel.count;
+    return 5000;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.dataModel.count;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"reuseIdentifier" forIndexPath:indexPath];
     
     UIListContentConfiguration *config = [cell defaultContentConfiguration];
-    config.text = [NSString stringWithFormat:@"Cell Title #%ld\nsome info\nsome info\nsome info", (long)indexPath.row];
+    config.text = [NSString stringWithFormat:@"Row #%ld", (long)indexPath.row];
     cell.contentConfiguration = config;
     
     return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return self.dataModel[section];
+
+    return [NSString stringWithFormat:@"Section #%ld", (long)section];
 }
 
 -(NSArray<NSString *> *)sectionIndexTitlesForTableView:(UITableView *)tableView {
-    return self.dataModel;
+    return @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView sectionForSectionIndexTitle:(NSString *)title atIndex:(NSInteger)index {

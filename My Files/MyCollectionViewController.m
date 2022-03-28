@@ -8,7 +8,7 @@
 #import "MyCollectionViewController.h"
 #import "MyCollectionReusableViewHeader.h"
 
-@interface MyCollectionViewController ()
+@interface MyCollectionViewController () <UICollectionViewDelegateFlowLayout>
 
 @end
 
@@ -21,33 +21,34 @@ static NSString * const reuseIdentifier = @"Cell";
     
     UICollectionLayoutListConfiguration *config = [[UICollectionLayoutListConfiguration alloc] initWithAppearance:UICollectionLayoutListAppearancePlain];
     config.headerMode = UICollectionLayoutListHeaderModeSupplementary;
-    self.collectionView.collectionViewLayout = [UICollectionViewCompositionalLayout layoutWithListConfiguration:config];
 
-    // Register cell classes
+    
+    UICollectionViewCompositionalLayout *layout = [UICollectionViewCompositionalLayout layoutWithListConfiguration:config];
+    self.collectionView.collectionViewLayout = layout;
+
+    // Register cell class
     [self.collectionView registerClass:[UICollectionViewListCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    [self.collectionView registerClass:[MyCollectionReusableViewHeader class]
-            forSupplementaryViewOfKind:UICollectionElementKindSectionHeader
-                   withReuseIdentifier:@"header"];
-
+    // Register header class
+    UINib *XIB = [UINib nibWithNibName:@"MyCollectionReusableViewHeader" bundle:[NSBundle mainBundle]];
+    [self.collectionView registerNib:XIB forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"header"];
 }
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return self.dataModel.count;
+    return 5000;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.dataModel.count;
+    return 5;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     UIListContentConfiguration *config = [((UICollectionViewListCell *)cell) defaultContentConfiguration];
-    config.text = [NSString stringWithFormat:@"Cell Title #%ld\nsome info\nsome info\nsome info", (long)indexPath.row];
+    config.text = [NSString stringWithFormat:@"Row #%ld", (long)indexPath.row];
     cell.contentConfiguration = config;
     
     return cell;
@@ -59,15 +60,15 @@ static NSString * const reuseIdentifier = @"Cell";
         MyCollectionReusableViewHeader *header = [self.collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader
                                                                                          withReuseIdentifier:@"header"
                                                                                                 forIndexPath:indexPath];
-        header.text = self.dataModel[indexPath.section];
+        [header configureWithText:[NSString stringWithFormat:@"Section #%ld", (long)indexPath.section]];
         return header;
     }
-    
+
     return nil;
 }
 
 - (NSArray<NSString *> *)indexTitlesForCollectionView:(UICollectionView *)collectionView {
-    return self.dataModel;
+    return @[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"];
 }
 
 -(NSIndexPath *)collectionView:(UICollectionView *)collectionView indexPathForIndexTitle:(NSString *)title atIndex:(NSInteger)index {
